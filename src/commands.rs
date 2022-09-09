@@ -1235,7 +1235,7 @@ struct DiffFormatArgs {
 /// branch name) to the current checkout.
 #[derive(clap::Args, Clone, Debug)]
 struct DiffArgs {
-    /// Show changes changes in this revision, compared to its parent(s)
+    /// Show changes in this revision, compared to its parent(s)
     #[clap(long, short)]
     revision: Option<String>,
     /// Show changes from this revision
@@ -1253,7 +1253,7 @@ struct DiffArgs {
 /// Show commit description and changes in a revision
 #[derive(clap::Args, Clone, Debug)]
 struct ShowArgs {
-    /// Show changes changes in this revision, compared to its parent(s)
+    /// Show changes in this revision, compared to its parent(s)
     #[clap(default_value = "@")]
     revision: String,
     #[clap(flatten)]
@@ -5129,7 +5129,7 @@ fn do_git_clone(
     let maybe_default_branch =
         git::fetch(fetch_tx.mut_repo(), &git_repo, remote_name).map_err(|err| match err {
             GitFetchError::NoSuchRemote(_) => {
-                panic!("should't happen as we just created the git remote")
+                panic!("shouldn't happen as we just created the git remote")
             }
             GitFetchError::InternalGitError(err) => {
                 CommandError::UserError(format!("Fetch failed: {err}"))
